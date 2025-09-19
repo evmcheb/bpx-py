@@ -384,6 +384,7 @@ class Account(BaseAccount):
 
     def get_fill_history(
         self,
+	order_id: Optional[str] = None,
         symbol: Optional[str] = None,
         limit: int = 100,
         offset: int = 0,
@@ -399,6 +400,7 @@ class Account(BaseAccount):
         https://docs.backpack.exchange/#tag/History/operation/get_fills
         """
         request_config = super().get_fill_history(
+	    order_id=order_id,
             symbol=symbol,
             limit=limit,
             offset=offset,

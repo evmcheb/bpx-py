@@ -401,6 +401,7 @@ class BaseAccount:
 
     def get_fill_history(
         self,
+	order_id: Optional[str] = None,
         symbol: Optional[str] = None,
         limit: Optional[int] = 100,
         offset: Optional[int] = 0,
@@ -434,6 +435,8 @@ class BaseAccount:
                 raise NegativeValueError(to)
             else:
                 params["to"] = to
+	if order_id:
+	    params["order_id"] = order_id
         if symbol:
             params["symbol"] = symbol
         if fill_type:
